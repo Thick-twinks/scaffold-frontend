@@ -1,0 +1,18 @@
+@mixin s-colors-base-dark {
+  --s-color-accent: var(--s-private-color-blue-850);
+  --s-color-accent-transparent: var(--s-private-color-blue-850-alpha-40);
+   
+  --s-color-danger: var( --s-private-color-red-700);
+  --s-color-danger-opacity-50 : var(--s-private-color-red-700-alpha-50);
+
+  --s-color-success : var(--s-private-color-green-700);
+  
+  --s-color-blue-light: var(--s-private-color-blue-300);
+  --s-color-secondary: var(--s-private-color-black-300);
+  --s-color-input-bg: var(--s-private-color-blue-200);
+  
+  --s-color-background-primary: var(--s-private-color-white-900);
+  --s-color-background-secondary: var(--s-private-color-white-1000);
+  --s-color-alert-success-primary: var(--s-private-color-green-700);
+  --s-color-alert-warning-primary: var(--s-private-color-yellow-700);
+}

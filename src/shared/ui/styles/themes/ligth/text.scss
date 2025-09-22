@@ -1,0 +1,11 @@
+@mixin s-colors-text-light {
+    --s-color-text: var(--s-private-color-black-850);
+    
+    --s-color-text-primary: var(--s-private-color-white-1000);
+    --s-color-text-secondary: var(--s-private-color-black-850);
+    --s-color-text-light: var(--s-private-color-black-300);
+    --s-color-text-black: var(--s-private-color-black-850);
+    --s-color-text-acent-primary: var(--s-private-color-blue-850);
+    --s-color-text-accent-secondary: var(--s-private-color-blue-850);
+    --s-color-text-accent-light: var(--s-private-color-blue-300);
+}

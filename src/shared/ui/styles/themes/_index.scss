@@ -1,0 +1,14 @@
+@use './ligth' as light;
+@use './dark' as dark;
+
+@mixin s-theme-light {
+  @include light.s-private-colors-light;
+  @include light.s-colors-text-light;
+  @include light.s-colors-base-light;
+}
+
+@mixin s-theme-dark {
+  @include dark.s-private-colors-dark;
+  @include dark.s-colors-text-dark;
+  @include dark.s-colors-base-dark;
+}
