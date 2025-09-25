@@ -47,6 +47,8 @@
 <script setup lang="ts">
 import { useField, useForm } from 'vee-validate'
 
+import { useUserLogin } from '@/features/users/auth'
+
 import { EMAIL_FIELD_NAME, loginFormValidationSchema, PASSWORD_FIELD_NAME } from '../config/validation'
 
 const { handleSubmit } = useForm({
@@ -56,8 +58,13 @@ const { handleSubmit } = useForm({
 const { value: email, errorMessage: emailError } = useField<string>(EMAIL_FIELD_NAME)
 const { value: password, errorMessage: passwordError } = useField<string>(PASSWORD_FIELD_NAME)
 
-const submitHandler = (values: unknown): void => {
-	console.log('Логин', values)
+const { toLogin } = useUserLogin()
+
+const submitHandler = (): void => {
+	toLogin({
+		email: email.value,
+		password: password.value
+	})
 }
 
 const onSubmit = handleSubmit(submitHandler)

@@ -22,18 +22,22 @@ export function useAuthMiddleware(logoutLocally: () => void): void {
 				return Promise.reject(error)
 			}
 
-			if (error.config.url.includes(REFRESH_URL)) {
+			if (error.config.url.includes(REFRESH_URL) || !tokenStore.refreshToken) {
 				logoutLocally()
 
 				return Promise.reject(error)
 			}
 
-			const response = await AuthService.refreshToken()
+			const response = await AuthService.refreshToken({
+				body: {
+					refresh_token: tokenStore.refreshToken
+				}
+			})
 
 			if (response.data) {
-				tokenStore.setAccessToken(response.data.token)
+				tokenStore.setAccessToken(response.data.access_token)
 
-				error.config.headers.set('Authorization', `Bearer ${response.data.token}`)
+				error.config.headers.set('Authorization', `Bearer ${response.data.access_token}`)
 
 				return client.request(error.config)
 			}
