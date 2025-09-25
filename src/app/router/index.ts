@@ -6,6 +6,8 @@ import { ProfilePageConfig } from '@/pages/profile'
 
 import { BASE_PAGE_NAME, BASE_PAGE_PATH } from './config'
 import { middlewarePipeline } from './model/middleware'
+import { requireAuth } from './model/middleware/requireAuth'
+import { requireGuest } from './model/middleware/requireGuest'
 import type { MiddlewareHandler } from './types'
 import AppLayout from '../layout/AppLayout.vue'
 import type { ConcreteComponent } from 'vue'
@@ -22,6 +24,7 @@ const router = createRouter({
 		{
 			path: LoginPageConfig.LOGIN_PAGE_PATH,
 			name: LoginPageConfig.LOGIN_PAGE_NAME,
+			meta: { middleware: [requireGuest] },
 			component: (): ConcreteComponent => {
 				return import('@/pages/login').then(module => {
 					return module.LoginPage
@@ -32,6 +35,7 @@ const router = createRouter({
 			path: BASE_PAGE_PATH,
 			name: BASE_PAGE_NAME,
 			redirect: ProfilePageConfig.PROFILE_PAGE_PATH,
+			meta: { middleware: [requireAuth] },
 			component: AppLayout,
 			props: { profilePagePath: ProfilePageConfig.PROFILE_PAGE_PATH },
 			children: [
