@@ -4,15 +4,31 @@ info:
   version: 0.0.1
 servers:
   - url: http://localhost:4010
-    description: Mock server
+    description: Мок сервер
 tags:
   - name: auth
-    description: Everything related to authorization
+    description: Все связанное с авторизацией
+  - name: users
+    description: Все связанное с пользователями
 paths:
-  # Authorization
+  # Авторизация
   /auth/login:
     $ref: './auth/paths.yaml#/Login'
+  /auth/logout:
+    $ref: './auth/paths.yaml#/Logout'
+  /auth/refresh:
+    $ref: './auth/paths.yaml#/Refresh'
+
+  /user/{id}:
+    $ref: './users/paths.yaml#/UsersIdPath'
 
 components:
+  schemas:
+    # Пользователи
+    User:
+      $ref: './users/schemas.yaml#/User'
+    UserRole:
+      $ref: './users/schemas.yaml#/UserRole'
+
   securitySchemes:
     $ref: './common/security.yaml'
