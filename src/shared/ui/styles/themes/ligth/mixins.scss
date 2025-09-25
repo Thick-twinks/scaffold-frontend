@@ -1,7 +1,0 @@
-@use './private_colors.scss' as private;
-@use './base.scss' as base;
-
-@mixin s-colors-light {
-  @include private.s-private-colors-light;
-  @include base.s-colors-base-light;
-}

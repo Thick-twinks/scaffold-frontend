@@ -4,16 +4,12 @@
       <slot name="title"></slot>
     </h1>
 
-    <BaseCard>
-      <template #content>
-        <slot></slot>
-      </template>
-    </BaseCard>
+    <div>
+      <slot></slot>
+    </div>
   </FullPageContainer>
 </template>
 
 <script setup lang="ts">
-import FullPageContainer from './FullPageContainer.vue'
-import BaseCard from '../Cards/BaseCard.vue'
 
 </script>

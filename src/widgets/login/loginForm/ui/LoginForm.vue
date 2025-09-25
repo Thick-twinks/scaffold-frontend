@@ -1,58 +1,66 @@
 <template>
-  <BaseCard>
-    <template #title>
+  <div class="bg-white p-3">
+    <h1>
       Авторизация
-    </template>
+    </h1>
 
-    <template #content>
-      <form @submit.prevent>
-        <SInput
-          v-model="email"
-          type="base"
-          :name="EMAIL_FIELD_NAME"
-          placeholder="Email"
-          :disabled="false"
-        />
+    <form
+      class="flex flex-col gap-2"
+      @submit.prevent="onSubmit"
+    >
+      <input
+        v-model="email"
+        type="email"
+        class="bg-gray-100"
+        :name="EMAIL_FIELD_NAME"
+        autocomplete="email"
+        placeholder="Email"
+      />
+      <span
+        v-if="emailError"
+        class="text-red-500 text-sm"
+      >{{ emailError }}</span>
 
-        <SInput
-          v-model="password"
-          type="password"
-          :name="PASSWORD_FIELD_NAME"
-          placeholder="Пароль"
-          :disabled="false"
-        />
+      <input
+        v-model="password"
+        type="password"
+        autocomplete="current-password"
+        class="bg-gray-100"
+        :name="PASSWORD_FIELD_NAME"
+        placeholder="Пароль"
+      />
+      <span
+        v-if="passwordError"
+        class="text-red-500 text-sm"
+      >{{ passwordError }}</span>
 
-        <SButton
-          type="primary"
-          @click="submit"
-        >
-          Войти в аккаунт
-        </SButton>
-      </form>
-    </template>
-  </BaseCard>
+      <button
+        type="submit"
+        class="bg-blue-400"
+      >
+        Войти в аккаунт
+      </button>
+    </form>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { SButton, SInput } from '@scaffold-org/scaffold-uikit'
 import { useField, useForm } from 'vee-validate'
 
-import { BaseCard } from '@/shared/ui/components'
-
 import { EMAIL_FIELD_NAME, loginFormValidationSchema, PASSWORD_FIELD_NAME } from '../config/validation'
-
-const { value: email } = useField<string>(EMAIL_FIELD_NAME)
-const { value: password } = useField<string>(PASSWORD_FIELD_NAME)
 
 const { handleSubmit } = useForm({
 	validationSchema: loginFormValidationSchema
 })
 
-const submitHandler = (): void => {
-	console.log('Логин')
+const { value: email, errorMessage: emailError } = useField<string>(EMAIL_FIELD_NAME)
+const { value: password, errorMessage: passwordError } = useField<string>(PASSWORD_FIELD_NAME)
+
+const submitHandler = (values: unknown): void => {
+	console.log('Логин', values)
 }
 
-const submit = handleSubmit(submitHandler)
+const onSubmit = handleSubmit(submitHandler)
 
 </script>
 
