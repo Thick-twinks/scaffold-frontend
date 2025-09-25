@@ -1,0 +1,18 @@
+openapi: 3.0.3
+info:
+  title: Scaffold Api
+  version: 0.0.1
+servers:
+  - url: http://localhost:4010
+    description: Mock server
+tags:
+  - name: auth
+    description: Everything related to authorization
+paths:
+  # Authorization
+  /auth/login:
+    $ref: './auth/paths.yaml#/Login'
+
+components:
+  securitySchemes:
+    $ref: './common/security.yaml'

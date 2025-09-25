@@ -4,12 +4,13 @@
       <slot name="title"></slot>
     </h1>
 
-    <div>
+    <div class="bg-white p-3">
       <slot></slot>
     </div>
   </FullPageContainer>
 </template>
 
 <script setup lang="ts">
+import FullPageContainer from './FullPageContainer.vue'
 
 </script>

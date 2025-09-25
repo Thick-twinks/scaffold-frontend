@@ -13,12 +13,17 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "lint:scss": "stylelint 'src/**/*.{scss,css}' --fix"
+    "lint:scss": "stylelint 'src/**/*.{scss,css}' --fix",
+    "openapi": "openapi-ts",
+    "mock": "prism mock ./src/shared/api/openapi/specification/openapi.yaml -p 4010"
   },
   "dependencies": {
+    "@hey-api/client-axios": "^0.2.3",
+    "@hey-api/openapi-ts": "^0.53.1",
     "@iconify/vue": "^5.0.0",
     "@scaffold-org/scaffold-uikit": "^0.0.5",
     "@vueuse/core": "^13.9.0",
+    "axios": "^1.12.2",
     "pinia": "^3.0.3",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.13",
@@ -28,6 +33,7 @@
     "yup": "^1.7.1"
   },
   "devDependencies": {
+    "@stoplight/prism-cli": "5.14.2",
     "@stylistic/eslint-plugin": "^5.4.0",
     "@stylistic/eslint-plugin-ts": "^4.4.1",
     "@tsconfig/node22": "^22.0.2",
