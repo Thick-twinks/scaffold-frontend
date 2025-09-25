@@ -1,6 +1,6 @@
 import { shallowRef, computed, type ComputedRef, type Ref, ref } from 'vue'
 
-import { ApiStatuses } from '../config'
+import { ApiStatuses } from '../config/statuses'
 import type { ServerError, ApiServiceErrorReturn, ResponseHeaders } from '../types'
 import type { RequestResult } from '@hey-api/client-axios'
 

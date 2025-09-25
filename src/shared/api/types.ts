@@ -1,4 +1,4 @@
-import type { ApiStatuses } from './config'
+import type { ApiStatuses } from './config/statuses'
 import type { AxiosHeaderValue } from 'axios'
 import type { ComputedRef, Ref } from 'vue'
 

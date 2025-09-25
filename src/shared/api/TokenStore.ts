@@ -1,7 +1,7 @@
 import { useStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
 
-import { ACCESS_TOKEN_STORAGE_NAME, REFRESH_TOKEN_STORAGE_NAME } from './config'
+import { ACCESS_TOKEN_STORAGE_NAME, REFRESH_TOKEN_STORAGE_NAME } from './config/storage'
 import { stringSerializer } from '../lib/storage'
 
 const STORE_NAME = 'token'
