@@ -18,9 +18,8 @@ paths:
     $ref: './auth/paths.yaml#/Logout'
   /auth/refresh:
     $ref: './auth/paths.yaml#/Refresh'
-
-  /user/{id}:
-    $ref: './users/paths.yaml#/UsersIdPath'
+  /auth/me:
+    $ref: './auth/paths.yaml#/MePath'
 
 components:
   schemas:

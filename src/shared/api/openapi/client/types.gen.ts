@@ -60,12 +60,6 @@ export type RefreshTokenResponse = ({
 
 export type RefreshTokenError = unknown;
 
-export type GetUserByIdData = {
-	path: {
-		id: number;
-	};
-};
+export type GetAuthenticatedUserResponse = (User);
 
-export type GetUserByIdResponse = (User);
-
-export type GetUserByIdError = (unknown);
+export type GetAuthenticatedUserError = (unknown);

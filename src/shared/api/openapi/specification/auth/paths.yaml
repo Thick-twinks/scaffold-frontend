@@ -81,3 +81,21 @@ Refresh:
                 - access_token
     security:
       - jwt: []
+
+MePath:
+  get:
+    tags:
+      - auth
+    summary: Получает аунтефицированого пользователя по id
+    operationId: getAuthenticatedUser
+    responses:
+      200:
+        description: Пользователь получен
+        content:
+          application/json:
+            schema:
+              $ref: '../users/schemas.yaml#/User'
+      default:
+        description: Неизвестная ошибка
+    security:
+      - jwt: []

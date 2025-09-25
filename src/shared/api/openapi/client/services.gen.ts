@@ -2,7 +2,7 @@
 
 import { createClient, createConfig, type Options } from '@hey-api/client-axios'
 
-import type { UserLoginData, UserLoginError, UserLoginResponse, UserLogoutError, UserLogoutResponse, RefreshTokenData, RefreshTokenError, RefreshTokenResponse, GetUserByIdData, GetUserByIdError, GetUserByIdResponse } from './types.gen'
+import type { UserLoginData, UserLoginError, UserLoginResponse, UserLogoutError, UserLogoutResponse, RefreshTokenData, RefreshTokenError, RefreshTokenResponse, GetAuthenticatedUserError, GetAuthenticatedUserResponse } from './types.gen'
 
 export const client = createClient(createConfig())
 
@@ -38,17 +38,13 @@ export class AuthService {
 		})
 	}
 
-}
-
-export class UsersService {
-
 	/**
-	 * Получает пользователя по id
+	 * Получает аунтефицированого пользователя по id
 	 */
-	public static getUserById<ThrowOnError extends boolean = false>(options: Options<GetUserByIdData, ThrowOnError>) {
-		return (options?.client ?? client).get<GetUserByIdResponse, GetUserByIdError, ThrowOnError>({
+	public static getAuthenticatedUser<ThrowOnError extends boolean = false>(options?: Options<unknown, ThrowOnError>) {
+		return (options?.client ?? client).get<GetAuthenticatedUserResponse, GetAuthenticatedUserError, ThrowOnError>({
 			...options,
-			url: '/user/{id}'
+			url: '/auth/me'
 		})
 	}
 
