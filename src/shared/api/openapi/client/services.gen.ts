@@ -2,7 +2,7 @@
 
 import { createClient, createConfig, type Options } from '@hey-api/client-axios'
 
-import type { UserLoginData, UserLoginError, UserLoginResponse, UserLogoutError, UserLogoutResponse, RefreshTokenData, RefreshTokenError, RefreshTokenResponse, GetAuthenticatedUserError, GetAuthenticatedUserResponse } from './types.gen'
+import { type UserLoginData, type UserLoginError, type UserLoginResponse, type UserLogoutError, type UserLogoutResponse, type RefreshTokenData, type RefreshTokenError, type RefreshTokenResponse, type GetAuthenticatedUserError, type GetAuthenticatedUserResponse, type GetAllProjectsError, type GetAllProjectsResponse, GetAllProjectsResponseTransformer } from './types.gen'
 
 export const client = createClient(createConfig())
 
@@ -45,6 +45,21 @@ export class AuthService {
 		return (options?.client ?? client).get<GetAuthenticatedUserResponse, GetAuthenticatedUserError, ThrowOnError>({
 			...options,
 			url: '/auth/me'
+		})
+	}
+
+}
+
+export class ProjectsService {
+
+	/**
+	 * Получает все проекты
+	 */
+	public static getAllProjects<ThrowOnError extends boolean = false>(options?: Options<unknown, ThrowOnError>) {
+		return (options?.client ?? client).get<GetAllProjectsResponse, GetAllProjectsError, ThrowOnError>({
+			...options,
+			url: '/project/get',
+			responseTransformer: GetAllProjectsResponseTransformer
 		})
 	}
 

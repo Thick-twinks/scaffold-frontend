@@ -10,6 +10,8 @@ tags:
     description: Все связанное с авторизацией
   - name: users
     description: Все связанное с пользователями
+  - name: projects
+    description: Все связанное с проектами
 paths:
   # Авторизация
   /auth/login:
@@ -21,6 +23,10 @@ paths:
   /auth/me:
     $ref: './auth/paths.yaml#/MePath'
 
+  # Проекты
+  /project/get:
+    $ref: './projects/paths.yaml#/ProjectsPath'
+
 components:
   schemas:
     # Пользователи
@@ -28,6 +34,12 @@ components:
       $ref: './users/schemas.yaml#/User'
     UserRole:
       $ref: './users/schemas.yaml#/UserRole'
+
+    # Проекты
+    Project:
+      $ref: './projects/schemas.yaml#/Project'
+    ProjectStatus:
+      $ref: './projects/schemas.yaml#/ProjectStatus'
 
   securitySchemes:
     $ref: './common/security.yaml'

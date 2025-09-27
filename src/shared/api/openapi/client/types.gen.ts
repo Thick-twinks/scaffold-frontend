@@ -30,6 +30,63 @@ export const UserRole = {
 	INSPECTOR: 'INSPECTOR'
 } as const
 
+/**
+ * Модель проекта
+ */
+export type Project = {
+
+	/**
+	 * Уникальный идентификатор проекта
+	 */
+	id: string;
+
+	/**
+	 * Название проекта
+	 */
+	name: string;
+
+	/**
+	 * ID заказчика
+	 */
+	customer_id: string;
+
+	/**
+	 * ID подрядчика
+	 */
+	contractor_id?: (string) | null;
+
+	/**
+	 * ID геоточки проекта
+	 */
+	geopoint_id?: (string) | null;
+
+	/**
+	 * Дата начала проекта
+	 */
+	start_date: Date;
+
+	/**
+	 * Планируемая дата завершения
+	 */
+	end_date: Date;
+	status: ProjectStatus;
+};
+
+/**
+ * Статус проекта
+ */
+export type ProjectStatus = 'CREATED' | 'BEING_INITIALIZED' | 'ACTIVE' | 'FINISHED';
+
+/**
+ * Статус проекта
+ */
+export const ProjectStatus = {
+	CREATED: 'CREATED',
+	BEING_INITIALIZED: 'BEING_INITIALIZED',
+	ACTIVE: 'ACTIVE',
+	FINISHED: 'FINISHED'
+} as const
+
 export type UserLoginData = {
 	body: {
 		email: string;
@@ -63,3 +120,31 @@ export type RefreshTokenError = unknown;
 export type GetAuthenticatedUserResponse = (User);
 
 export type GetAuthenticatedUserError = (unknown);
+
+export type GetAllProjectsResponse = (Array<Project>);
+
+export type GetAllProjectsError = (unknown);
+
+export type GetAllProjectsResponseTransformer = (data: any) => Promise<GetAllProjectsResponse>;
+
+export type ProjectModelResponseTransformer = (data: any) => Project;
+
+export const ProjectModelResponseTransformer: ProjectModelResponseTransformer = data => {
+	if (data?.start_date) {
+		data.start_date = new Date(data.start_date)
+	}
+
+	if (data?.end_date) {
+		data.end_date = new Date(data.end_date)
+	}
+
+	return data
+}
+
+export const GetAllProjectsResponseTransformer: GetAllProjectsResponseTransformer = async data => {
+	if (Array.isArray(data)) {
+		data.forEach(ProjectModelResponseTransformer)
+	}
+
+	return data
+}
