@@ -1,8 +1,8 @@
 <template>
-  <div class="app-logo">
-    <LogoIcon class="app-logo__icon" />
+  <div class="app-logo w-full sm:w-fit flex justify-center md:justify-start">
+    <LogoIcon class="app-logo__icon w-[50px] h-[50px] min-w-[50px] min-h-[50px] md:w-[60px] md:h-[60px] md:min-w-[60px] md:min-h-[60px]" />
 
-    <span class="app-logo__text">
+    <span class="app-logo__text text-3xl md:text-4xl">
       <span class="app-logo__text__acent">Scaff</span>old
     </span>
   </div>
@@ -27,19 +27,12 @@ import { LogoIcon } from '@/shared/ui/assets/icons'
     z-index: 120 !important;
 
     .app-logo__icon {
-        min-width: 60px;
-        min-height: 60px;
-
-        width: 60px;
-        height: 60px;
-
         fill: var(--app-header-text-acent-color);
 
         margin-bottom: 1rem;
     }
 
     .app-logo__text {
-       font-size: 35px;
        font-weight: 600;
        color: var(--app-header-text-color);
 

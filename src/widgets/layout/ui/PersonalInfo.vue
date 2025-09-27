@@ -13,7 +13,7 @@
       <UserIcon class="personal-info__icon" />
 
       <div
-        class="personal-info__name"
+        class="personal-info__name hidden sm:flex"
         :title="nameWithInitials"
       >
         {{ nameWithInitials }}
@@ -81,6 +81,9 @@ const nameWithInitials = computed(() => {
       margin-right: 0.25rem;
       max-height: 1.75rem;
       font-weight: 600;
+
+      flex-wrap: nowrap;
+      width: fit-content;
     }
   }
 </style>
