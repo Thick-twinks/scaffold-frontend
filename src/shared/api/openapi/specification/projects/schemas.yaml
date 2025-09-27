@@ -17,6 +17,7 @@ Project:
     - status
     - start_date
     - end_date
+    - geopoint_id
   properties:
     id:
       type: string
@@ -45,7 +46,6 @@ Project:
       format: uuid
       example: '550e8400-e29b-41d4-a716-446655440003'
       description: ID геоточки проекта
-      nullable: true
     start_date:
       type: string
       format: date-time # Более точный формат чем timestamp

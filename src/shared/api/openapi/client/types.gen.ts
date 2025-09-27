@@ -58,7 +58,7 @@ export type Project = {
 	/**
 	 * ID геоточки проекта
 	 */
-	geopoint_id?: (string) | null;
+	geopoint_id: string;
 
 	/**
 	 * Дата начала проекта

@@ -36,7 +36,7 @@ export const UserRoleSchema = {
 
 export const ProjectSchema = {
 	type: 'object',
-	required: [ 'id', 'name', 'customer_id', 'status', 'start_date', 'end_date' ],
+	required: [ 'id', 'name', 'customer_id', 'status', 'start_date', 'end_date', 'geopoint_id' ],
 	properties: {
 		id: {
 			type: 'string',
@@ -68,8 +68,7 @@ export const ProjectSchema = {
 			type: 'string',
 			format: 'uuid',
 			example: '550e8400-e29b-41d4-a716-446655440003',
-			description: 'ID геоточки проекта',
-			nullable: true
+			description: 'ID геоточки проекта'
 		},
 		start_date: {
 			type: 'string',
