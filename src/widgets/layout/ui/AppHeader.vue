@@ -8,7 +8,11 @@
         class="hidden md:flex"
       />
 
-      <HeaderBurgerMenu :header-navigation-config="headerNavigationConfig" />
+      <div class="flex gap-1">
+        <PersonalInfo :profile-page-path="profilePagePath" />
+
+        <HeaderBurgerMenu :header-navigation-config="headerNavigationConfig" />
+      </div>
     </nav>
   </header>
 </template>
@@ -18,6 +22,7 @@ import AppLogo from './AppLogo.vue'
 import type { HeaderNavigationConfig } from '../model/types'
 import HeaderBurgerMenu from './navigation/HeaderBurgerMenu.vue'
 import HeaderNavigation from './navigation/HeaderNavigation.vue'
+import PersonalInfo from './PersonalInfo.vue'
 
 interface AppHeaderProps {
 	headerNavigationConfig: HeaderNavigationConfig;
