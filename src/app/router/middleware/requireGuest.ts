@@ -1,6 +1,6 @@
 import { useAuthenticatedUserStore } from '@/features/users/auth'
 
-import type { MiddlewareHandlerParams, MiddlewareHandlerReturn } from '../../types'
+import type { MiddlewareHandlerParams, MiddlewareHandlerReturn } from '../types'
 
 export function requireGuest({
 	context,

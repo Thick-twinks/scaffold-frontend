@@ -4,7 +4,7 @@ import { LoginPageConfig } from '@/pages/login'
 
 import { REDIRECT_FROM_STORAGE_NAME } from '@/app/router/config'
 
-import type { MiddlewareHandlerParams, MiddlewareHandlerReturn } from '../../types'
+import type { MiddlewareHandlerParams, MiddlewareHandlerReturn } from '../types'
 
 export function requireAuth({
 	context,

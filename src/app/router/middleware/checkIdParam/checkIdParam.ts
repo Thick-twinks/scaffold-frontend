@@ -1,6 +1,6 @@
 import { ID_PARAM_NAME } from '@/shared/config/router'
 
-import type { MiddlewareHandlerParams, MiddlewareHandlerReturn } from '../../../types'
+import type { MiddlewareHandlerParams, MiddlewareHandlerReturn } from '../../types'
 
 export function checkIdParam({
 	context,

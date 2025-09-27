@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { useApiClientConfig } from './api/useApiClientConfig'
-import { useRedirectEventListener } from './router/model/redirect/utils'
+import { useRedirectEventListener } from './router/redirect/utils'
 
 useRedirectEventListener()
 useApiClientConfig()

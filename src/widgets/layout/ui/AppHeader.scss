@@ -1,0 +1,9 @@
+@mixin app-header {
+  --app-header-bg-color: var(--s-private-color-blue-900);
+  --app-header-sidebar-bg-color: var(--s-private-color-white-1000);
+  --app-header-text-color: var(--s-color-text-light);
+  --app-header-text-acent-color: var(--s-private-color-white-800);
+
+  --app-header-height: 84px;
+  --app-header-icon-size: 40px;
+}

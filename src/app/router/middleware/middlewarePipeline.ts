@@ -3,7 +3,7 @@ import type {
 	MiddlewareHandler,
 	MiddlewareHandlerReturn,
 	MiddlewarePipelineReturn
-} from '../../types'
+} from '../types'
 
 export function middlewarePipeline(
 	context: MiddlewareContext,
