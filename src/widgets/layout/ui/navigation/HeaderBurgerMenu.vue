@@ -60,6 +60,9 @@ router.beforeEach(beforeRouteLeave)
     z-index: 120 !important;
 
     .hamburger__icon {
+        min-width: var(--app-header-icon-size);
+        min-height: var(--app-header-icon-size);
+
         width: var(--app-header-icon-size);
         height: var(--app-header-icon-size);
 

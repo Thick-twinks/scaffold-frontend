@@ -1,5 +1,8 @@
 <template>
-  <ul class="header-navigation">
+  <ul
+    class="header-navigation"
+    :class="sidebar ? 'header-navigation--sidebar' : 'hidden md:flex'"
+  >
     <li
       v-for="navObjectConfig of headerNavigationConfig"
       :key="navObjectConfig.label"
@@ -21,6 +24,7 @@ import type { HeaderNavigationConfig } from '../../model/types'
 
 interface HeaderNavigationProps {
 	headerNavigationConfig: HeaderNavigationConfig;
+	sidebar?: boolean;
 }
 
 defineProps<HeaderNavigationProps>()
@@ -32,7 +36,7 @@ defineProps<HeaderNavigationProps>()
 .header-navigation {
     @include app-header;
 
-    display: flex;
+    gap: 1rem;
 
     .header-navigation__item {
         color: var(--app-header-text-color);
@@ -40,6 +44,34 @@ defineProps<HeaderNavigationProps>()
         .header-navigation__item__link {
             color: var(--app-header-text-color);
             font-weight: 600;
+
+            &:hover {
+                color: var(--app-header-text-acent-color);
+            }
+        }
+
+        .header-navigation__item__link--sidebar {
+            color: var(--app-header-text-color);
+            font-weight: 600;
+
+            &:hover {
+                color: var(--app-header-text-acent-color);
+            }
+        }
+    }
+}
+
+.header-navigation.header-navigation--sidebar {
+    @include app-header;
+
+    display: flex !important;
+
+    .header-navigation__item__link {
+        color: var(--app-sidebar-text-color);
+        font-weight: 600;
+
+        &:hover {
+            color: var(--app-sidebar-text-acent-color);
         }
     }
 }

@@ -3,7 +3,10 @@
     <AppLogo />
 
     <nav class="app-header__navigation">
-      <HeaderNavigation :header-navigation-config="headerNavigationConfig" />
+      <HeaderNavigation
+        :header-navigation-config="headerNavigationConfig"
+        class="hidden md:flex"
+      />
 
       <HeaderBurgerMenu :header-navigation-config="headerNavigationConfig" />
     </nav>

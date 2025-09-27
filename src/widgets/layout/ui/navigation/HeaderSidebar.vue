@@ -1,7 +1,7 @@
 <template>
   <template v-if="visible">
     <div
-      class="header-sidebar d-lg-none"
+      class="header-sidebar"
       @click.stop
     >
       <div class="header-sidebar__header"></div>
@@ -9,14 +9,20 @@
       <div
         class="header-sidebar__content"
       >
-        <HeaderNavigation :header-navigation-config="headerNavigationConfig" />
+        <HeaderNavigation
+          :header-navigation-config="headerNavigationConfig"
+          class="flex-col"
+          sidebar
+        />
       </div>
     </div>
 
-    <div
-      class="blue-bg"
-      @click="hideSidebar"
-    ></div>
+    <Teleport to="#app">
+      <div
+        class="blue-bg"
+        @click="hideSidebar"
+      ></div>
+    </Teleport>
   </template>
 </template>
 
@@ -60,27 +66,30 @@ defineExpose<SidebarExpose>({
 
     position: fixed;
     height: 100vh;
+    min-width: 200px;
     width: fit-content;
     right: 0;
     top: 0;
     z-index: 110;
-
-    background-color: var(--app-header-sidebar-bg-color);
 
     .header-sidebar__header {
         height: var(--app-header-height);
     }
 
     .header-sidebar__content {
-        padding: 1rem 0 4rem;
-        overflow-y: scroll;
+        padding: 1rem 2rem 4rem;
+        overflow-y: auto;
         height: 100%;
+
+        background-color: var(--app-header-sidebar-bg-color);
     }
   }
 
   .blue-bg {
-    position: fixed;
-    backdrop-filter: blur(2px);
+    position: absolute;
+    top: 0;
+    left: 0;
+
     height: 100vh;
     width: 100vw;
 

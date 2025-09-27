@@ -27,6 +27,9 @@ import { LogoIcon } from '@/shared/ui/assets/icons'
     z-index: 120 !important;
 
     .app-logo__icon {
+        min-width: 60px;
+        min-height: 60px;
+
         width: 60px;
         height: 60px;
 

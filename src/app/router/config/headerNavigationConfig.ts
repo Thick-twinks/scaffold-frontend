@@ -13,6 +13,11 @@ const BaseNavigation: HeaderNavigationConfig = [
 		type: HeaderConfigTypes.link,
 		label: 'Проекты',
 		to: ProjectsPageConfig.PROJECTS_PAGE_PATH
+	},
+	{
+		type: HeaderConfigTypes.link,
+		label: 'Задачи',
+		to: ProjectsPageConfig.TASKS_PAGE_PATH
 	}
 ]
 
